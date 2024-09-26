@@ -14,19 +14,20 @@ alles goed gaat, breidt je de applicatie uit met extra functionaliteit.
 
 ## Workshops
 
-### Workshop 1 - REST + Requirements Specifications
+### <a href="/Workshop - Requirements Specification/01_introduction.md">Workshop 1 - REST + Requirements Specifications</a>
+
 In deze workshop gaan we kijken naar het opstellen van requirements. Wat zijn goede requirements en
 waar moeten ze o.a. aan voldoen. Wat is REST en hoe werken API’s, een korte introductie en hoe je
 requirements daarvoor opstelt. Aan de hand van voorbeelden ga je kijken naar hoe je o.a. requirements uit
 bestaande software zou kunnen ontleden.
 
-### Workshop 2 – Git
+### <a href="/Workshop - GIT/01_introduction.md">Workshop 2 – Git</a>
 In deze workshop gaan we kijken naar het gebruik van Git en GitHub. Welke termen worden er gebruikt en
 waar dienen ze voor, wat is de normale gang van werken met Git en wat is het verschil met GitHub.
 Gedurende de gehele cursus is Git de levensader van CI/CD en nu kijken we naar waarvoor, waarom en
 hoe je het gebruikt.
 
-### Workshop 3 - Software Testing
+### <a href="/Workshop - Software Testing/01_introduction.md">Workshop 3 - Software Testing</a>
 In deze workshop gaan we kijken naar het testen van software. Wat test je wanneer, welke methoden zijn
 er om te testen en waar moet je rekening mee houden. Welke tools kan je gebruiken en hoe gaat dit straks
 helpen binnen onze CI/CD pipeline.
