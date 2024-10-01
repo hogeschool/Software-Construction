@@ -70,6 +70,7 @@ TOTAL              11      4    64%
 
 We can also run the test coverage over multiple files, for unittest we can use the command `unittest disover -s <source_folder>` to grab all test files in that folder. <br>
 To run the coverage and generate a report we will use `coverage run -m unittest discover -s .`. This will tell us, we have 4 tests in total at this moment resulting in the followin coverage report:
+> If you want to run pytest with coverage you can use: `coverage run -m pytest`
 
 ```text
 Name            Stmts   Miss  Cover   Missing
