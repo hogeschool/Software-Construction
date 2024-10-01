@@ -49,7 +49,7 @@ We can divide the input domain into equivalence classes, fill in the blank spots
 * Valid: <blank>
 
 <details markdown="1">
-<summary>Reveal potential answer</summary>
+<summary align="right">Reveal potential answer</summary>
 
 * Invalid: 0, -1, -100
 * Valid: 4, 16, 2.25
@@ -86,7 +86,7 @@ How would the following table look like?
 | ...     |  ...  |     ... |
 
 <details markdown="1">
-<summary>Reveal potential answer</summary>
+<summary align="right">Reveal potential answer</summary>
 
 | Invalid | Valid | Invalid |
 | :------ | :---: | ------: |
@@ -142,7 +142,7 @@ def apply_discount(payment_method, order_total):
 
 How would the decision table look like for the above code?
 <details markdown="1">
-<summary>Reveal potential answer</summary>
+<summary align="right">Reveal potential answer</summary>
 
 | Condition | Payment Method | Order Total | Action                 |
 | :-------- | :------------- | :---------- | :--------------------- |
