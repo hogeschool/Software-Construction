@@ -25,54 +25,194 @@ Metrics provide quantitative data about the testing process. Common metrics incl
 ======================================== test session starts ========================================
 collected 3 items
 
-test_calculator.py::TestCalculator::test_negative_number    PASSED                            [ 33%]
-test_calculator.py::TestCalculator::test_positive_number    PASSED                            [ 66%] 
-test_calculator.py::TestCalculator::test_zero               PASSED                            [100%] 
+test_calculator.py::TestCalculator::test_add                PASSED                            [ 50%]
+test_calculator.py::TestCalculator::test_subtract           PASSED                            [100%] 
 
-========================================= 3 passed in 0.28s ======================================== 
+========================================= 2 passed in 0.28s ======================================== 
 ```
 
 ### Coverage 
 Coverage refers to the extent to which your tests cover different aspects of the application. Types of coverage include code coverage (how much code is exercised by tests), requirement coverage (how well requirements are tested), and risk-based coverage (focusing on critical areas).
 
-We expanded our `Calculator` example from earlier with 4 extra methods. How many CodeCoverage do you think we have with the provided test? Python has a library for this `coverage` which can be installed via: `pip install coverage`.
+We expanded our `Calculator` example from earlier with 2 extra methods. How many CodeCoverage do you think we have with the provided test? Python has a library for this `coverage` which can be installed via: `pip install coverage`.
 
 ```python
-from math import sqrt
-
 class Calculator:
-    def square_root(self, x):
-        if x < 0:
-            raise ValueError("Cannot calculate square root of a negative number")
-        return sqrt(x)
-
-    def sum(self, a, b):
+    def add(self, a, b):
         return a + b
 
-    def difference(self, a, b):
+    def subtract(self, a, b):
         return a - b
 
-    def product(self, a, b):
+    def multiply(self, a, b):
         return a * b
 
-    def quotient(self, a, b):
+    def divide(self, a, b):
+        if b == 0:
+            raise ValueError("Cannot divide by zero.")
         return a / b
 ```
 
 When we run the test again but now via the coverage tool `coverage run .\test_calculator.py` . This will collect all the coverage information which we can extract via the report command: `coverage report --omit="test*"`. We can see we are missing coverage on specific lines (*these are the `return` values of each added method to the class Calculator*).
 
 ```text
-Name                 Stmts   Miss  Cover   Missing
---------------------------------------------------
-calculator.py           14      4    71%   11, 14, 17, 20
---------------------------------------------------
-TOTAL                   14      4    71%
+Name            Stmts   Miss  Cover   Missing
+---------------------------------------------
+calculator.py      11      4    64%   9, 12-14
+---------------------------------------------
+TOTAL              11      4    64%
 ```
 
 <br>
 
 > :exclamation: **Test coverage is only indicative.** <br>
 > It’s a great tool to reveal any gaps in your test approach, but it shouldn’t be taken as gospel. And anyway, even “perfect” test coverage doesn’t prevent new bugs from being introduced. It’s better to have really smart tests than it is to have 100% coverage!
+
+We can also run the test coverage over multiple files, for unittest we can use the command `unittest disover -s <source_folder>` to grab all test files in that folder. <br>
+To run the coverage and generate a report we will use `coverage run -m unittest discover -s .`. This will tell us, we have 4 tests in total at this moment resulting in the followin coverage report:
+
+```text
+Name            Stmts   Miss  Cover   Missing
+---------------------------------------------
+api.py             27      7    74%   28-29, 34-38
+calculator.py      11      4    64%   9, 12-14
+---------------------------------------------
+TOTAL              38     11    71%
+```
+
+<br>
+
+### Adjusting our tests
+----
+
+We can adjust our unittest first, by implementing more testcases:
+- test multiplication
+- test division
+- test division by zero
+
+<br>
+
+**Do time!** Convert the above testcases into a working unittest.
+
+<details markdown="1">
+<summary>Reveal potential solution</summary>
+    
+```python
+class TestCalculator(unittest.TestCase):
+    def setUp(self):
+        self.calculator = Calculator()
+
+    def test_add(self):
+        self.assertEqual(self.calculator.add(1, 2), 3)
+
+    def test_subtract(self):
+        self.assertEqual(self.calculator.subtract(5, 3), 2)
+
+    def test_multiply(self):
+        self.assertEqual(self.calculator.multiply(3, 4), 12)
+
+    def test_divide(self):
+        self.assertEqual(self.calculator.divide(10, 2), 5)
+
+    def test_divide_by_zero(self):
+        with self.assertRaises(ValueError):
+            self.calculator.divide(10, 0)
+```
+</details>
+<br>
+
+If the adjustment was correct we should see that the coverage has gone up for `calculator.py` but we are still missing coverage for our api:
+
+```text
+Name            Stmts   Miss  Cover   Missing
+---------------------------------------------
+api.py             27      7    74%   28-29, 34-38
+calculator.py      11      0   100%
+---------------------------------------------
+TOTAL              38      7    82%
+```
+
+<br>
+<br>
+
+Adjusting the `Calculator` class also resulted in an adjusted api file, the following endpoints are added:
+
+```python
+...
+@app.post("/multiply")
+async def multiply(data: OperationData):
+    result = calculator.multiply(data.a, data.b)
+    return {"result": result}
+
+
+@app.post("/divide")
+async def divide(data: OperationData):
+    try:
+        result = calculator.divide(data.a, data.b)
+        return {"result": result}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+...
+```
+
+<br>
+
+In the previous integration test we only covered the request itself. To adjust the integration test, we setup the following testcases:
+- Validate new endpoints (multiply, divide)
+- Validate zero division error
+- Validate response code 200 (correct request)
+- Validate response code 400 (divide by zero request)
+
+***Do time!* ** Convert the above testcases into an adjusted integrationtest
+
+<details markdown="1">
+<summary>Reveal potential solution</summary>
+
+```python
+class TestCalculatorAPI(unittest.TestCase):
+    def setUp(self):
+        self.client = TestClient(app)
+
+    def test_add(self):
+        response = self.client.post("/add", json={"a": 1, "b": 2})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"result": 3})
+
+    def test_subtract(self):
+        response = self.client.post("/subtract", json={"a": 5, "b": 3})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"result": 2})
+
+    def test_multiply(self):
+        response = self.client.post("/multiply", json={"a": 3, "b": 4})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"result": 12})
+
+    def test_divide(self):
+        response = self.client.post("/divide", json={"a": 10, "b": 2})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"result": 5})
+
+    def test_divide_by_zero(self):
+        response = self.client.post("/divide", json={"a": 10, "b": 0})
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("detail", response.json())
+        self.assertIn("divide by zero", response.json().get("detail"))
+```
+</details>
+
+<br><br>
+
+Now our coverage report should look like the following:
+
+```text
+Name            Stmts   Miss  Cover   Missing
+---------------------------------------------
+api.py             27      0   100%
+calculator.py      11      0   100%
+---------------------------------------------
+TOTAL              38      0   100%
+```
 
 <br>
 

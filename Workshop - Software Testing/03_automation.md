@@ -18,22 +18,18 @@ If we look at our `Calculator` class, a simple unittest via the build in `unitte
 import unittest
 from calculator import Calculator
 
+
 class TestCalculator(unittest.TestCase):
     def setUp(self):
         self.calculator = Calculator()
 
-    def test_positive_number(self):
-        self.assertAlmostEqual(self.calculator.square_root(25), 5.0, places=6)
+    def test_add(self):
+        self.assertEqual(self.calculator.add(1, 2), 3)
 
-    def test_zero(self):
-        self.assertAlmostEqual(self.calculator.square_root(0), 0.0, places=6)
+    def test_subtract(self):
+        self.assertEqual(self.calculator.subtract(5, 3), 2)
 
-    def test_negative_number(self):
-        with self.assertRaises(ValueError):
-            self.calculator.square_root(-10)
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
 ```
 
@@ -57,15 +53,11 @@ from calculator import Calculator  # Assuming you have a Calculator class
 def calculator():
     return Calculator()
 
-def test_positive_number(calculator):
-    assert pytest.approx(calculator.square_root(25), 5.0, rel=1e-6)
+def test_add(calculator):
+    assert calculator.add(1, 2) == 3
 
-def test_zero(calculator):
-    assert pytest.approx(calculator.square_root(0), 0.0, rel=1e-6)
-
-def test_negative_number(calculator):
-    with pytest.raises(ValueError):
-        calculator.square_root(-10)
+def test_subtract(calculator):
+    assert calculator.subtract(5, 3) == 2
 ```
 
 We run this test by executing the following command:

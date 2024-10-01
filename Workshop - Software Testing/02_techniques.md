@@ -48,6 +48,13 @@ We can divide the input domain into equivalence classes, fill in the blank spots
 * Invalid: <blank>
 * Valid: <blank>
 
+<details markdown="1">
+<summary>Reveal potential answer</summary>
+
+* Invalid: 0, -1, -100
+* Valid: 4, 16, 2.25
+</details>
+
 ### Boundary value analysis (BVA)
 BVA focuses on testing the behavior of an application using test data that exists at boundary values.
 For a given range of input data values, boundary values (extreme end values) are used for testing.
@@ -77,6 +84,21 @@ How would the following table look like?
 | Invalid | Valid | Invalid |
 | :------ | :---: | ------: |
 | ...     |  ...  |     ... |
+
+<details markdown="1">
+<summary>Reveal potential answer</summary>
+
+| Invalid | Valid | Invalid |
+| :------ | :---: | ------: |
+| 3       |   4   |       5 |
+| 99      |  100  |     101 |
+| 103     |  104  |     105 |
+| 399     |  400  |     401 |
+| 403     |  404  |     405 |
+| 499     |  500  |     501 |
+| 503     |  504  |     505 |
+| 1999    | 2000  |    2001 |
+</details>
 
 
 ### Decision table-based testing
@@ -119,3 +141,15 @@ def apply_discount(payment_method, order_total):
 ```
 
 How would the decision table look like for the above code?
+<details markdown="1">
+<summary>Reveal potential answer</summary>
+
+| Condition | Payment Method | Order Total | Action                 |
+| :-------- | :------------- | :---------- | :--------------------- |
+| 1         | Credit Card    | > $100      | Apply a discount       |
+| 2         | Credit Card    | ≤ $100      | No Discount            |
+| 3         | PayPal         | > $50       | Apply a discount       |
+| 4         | PayPal         | ≤ $50       | No Discount            |
+| 5         | Other          | Any         | Invalid payment method |
+
+</details>
