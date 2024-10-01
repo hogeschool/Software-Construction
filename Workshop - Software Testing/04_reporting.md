@@ -95,7 +95,7 @@ We can adjust our unittest first, by implementing more testcases:
 **Do time!** Convert the above testcases into a working unittest.
 
 <details markdown="1">
-<summary>Reveal potential solution</summary>
+<summary align="right">Reveal potential solution</summary>
     
 ```python
 class TestCalculator(unittest.TestCase):
@@ -163,10 +163,10 @@ In the previous integration test we only covered the request itself. To adjust t
 - Validate response code 200 (correct request)
 - Validate response code 400 (divide by zero request)
 
-***Do time!* ** Convert the above testcases into an adjusted integrationtest
+**Do time!** Convert the above testcases into an adjusted integrationtest
 
 <details markdown="1">
-<summary>Reveal potential solution</summary>
+<summary align="right">Reveal potential solution</summary>
 
 ```python
 class TestCalculatorAPI(unittest.TestCase):
