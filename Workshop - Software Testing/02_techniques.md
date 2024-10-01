@@ -39,7 +39,7 @@ import math
 
 class Calculator:
     def square_root(self, x):
-        if x < 0:
+        if x <= 0:
             raise ValueError("Cannot calculate square root of a negative number")
         return math.sqrt(x)
 ```
@@ -91,13 +91,11 @@ How would the following table look like?
 | Invalid | Valid | Invalid |
 | :------ | :---: | ------: |
 | 3       |   4   |       5 |
-| 99      |  100  |     101 |
 | 103     |  104  |     105 |
 | 399     |  400  |     401 |
 | 403     |  404  |     405 |
-| 499     |  500  |     501 |
-| 503     |  504  |     505 |
 | 1999    | 2000  |    2001 |
+| 2039    | 2040  |    2041 |
 </details>
 
 
