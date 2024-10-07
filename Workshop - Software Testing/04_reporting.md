@@ -70,6 +70,7 @@ TOTAL              11      4    64%
 
 We can also run the test coverage over multiple files, for unittest we can use the command `unittest disover -s <source_folder>` to grab all test files in that folder. <br>
 To run the coverage and generate a report we will use `coverage run -m unittest discover -s .`. This will tell us, we have 4 tests in total at this moment resulting in the followin coverage report:
+> If you want to run pytest with coverage you can use: `coverage run -m pytest`
 
 ```text
 Name            Stmts   Miss  Cover   Missing
@@ -95,7 +96,7 @@ We can adjust our unittest first, by implementing more testcases:
 **Do time!** Convert the above testcases into a working unittest.
 
 <details markdown="1">
-<summary>Reveal potential solution</summary>
+<summary align="right">Reveal potential solution</summary>
     
 ```python
 class TestCalculator(unittest.TestCase):
@@ -163,10 +164,10 @@ In the previous integration test we only covered the request itself. To adjust t
 - Validate response code 200 (correct request)
 - Validate response code 400 (divide by zero request)
 
-***Do time!* ** Convert the above testcases into an adjusted integrationtest
+**Do time!** Convert the above testcases into an adjusted integrationtest
 
 <details markdown="1">
-<summary>Reveal potential solution</summary>
+<summary align="right">Reveal potential solution</summary>
 
 ```python
 class TestCalculatorAPI(unittest.TestCase):
