@@ -32,7 +32,7 @@ In deze workshop gaan we kijken naar het testen van software. Wat test je wannee
 er om te testen en waar moet je rekening mee houden. Welke tools kan je gebruiken en hoe gaat dit straks
 helpen binnen onze CI/CD pipeline.
 
-### Workshop 4 – Refactoring
+### <a href="/Workshop - Refactoring/01_introduction.md">Workshop 4 – Refactoring</a>
 In deze workshop gaan we kijken naar refactoring, wat is het, waar gebruik je het voor en hoe pas je het
 toe? Hoe draagt refactoring bij aan het beter onderhoudbaar maken van je software en hoe kunnen we dit
 op een bestaand project toepassen?
