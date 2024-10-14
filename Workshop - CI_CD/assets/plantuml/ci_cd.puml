@@ -1,0 +1,20 @@
+@startuml CI/CD overview
+skinparam backgroundcolor transparent
+
+rectangle "Continuous Integration" {	
+    agent Build
+    agent Test
+    agent Artifact
+
+    Build -> Test
+    Test -> Artifact
+}
+
+rectangle "Continuous Delivery" {
+    agent Staging
+    agent Production
+
+    Artifact -> Staging
+    Staging -> Production
+}
+@enduml

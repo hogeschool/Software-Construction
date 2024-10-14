@@ -1,0 +1,35 @@
+@startuml Canary Deployment
+skinparam backgroundcolor transparent
+
+left to right direction
+
+actor Users
+agent Proxy
+
+rectangle "v1.0" as V1 {
+    card B1 #CornflowerBlue
+    card B2 #CornflowerBlue
+    card B3 #CornflowerBlue
+
+    [B1] -[hidden]-> [B2]
+    [B2] -[hidden]-> [B3]
+}
+
+rectangle "v1.0 / v2.0" as V2 {
+    card G1 #LightGreen
+
+    rectangle " " as O1 #line.dotted {
+        card B2 as G2 #CornflowerBlue
+        card B3 as G3 #CornflowerBlue
+    }
+
+    [G1] -[hidden]-> [G2]
+    [G2] -[hidden]-> [G3]
+}
+
+
+Users --> Proxy
+Proxy --> V1
+Proxy --> G1 : some users
+Proxy --> O1 : most users
+@enduml

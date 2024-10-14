@@ -1,0 +1,16 @@
+@startuml Feature Deployment
+skinparam backgroundcolor transparent
+
+left to right direction
+
+actor Users
+agent Proxy
+rectangle "Features" as F {
+    card "Feature 1" as 1 #CornflowerBlue
+    card "Feature 2" as 2 #CornflowerBlue
+}
+
+Users --> Proxy
+Proxy ----> F : flag=A go to new feature
+Proxy -----> F : flag=B 
+@enduml

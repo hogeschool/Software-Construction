@@ -1,0 +1,15 @@
+@startuml CD overview
+skinparam backgroundcolor transparent
+
+rectangle "Continuous Delivery" {
+    agent Staging
+    agent Testing #line.dashed
+    agent Monitoring #line.dashed
+    agent Production
+
+    Artifact -> Staging
+    Staging -> Testing
+    Testing-> Production
+    Production -> Monitoring
+}
+@enduml

@@ -1,0 +1,12 @@
+@startuml CI overview
+skinparam backgroundcolor transparent
+
+rectangle "Continuous Integration" {	
+    agent Build
+    agent Test
+    agent Artifact
+
+    Build -> Test
+    Test -> Artifact
+}
+@enduml

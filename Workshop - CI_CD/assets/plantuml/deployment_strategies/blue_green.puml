@@ -1,0 +1,58 @@
+@startuml Blue-Green Deployment
+skinparam backgroundcolor transparent
+
+left to right direction
+
+actor Users
+agent Proxy
+
+rectangle " " as 1 #line.dotted {    
+    rectangle "v1.0" as V1 {
+        card B1 as V1B1 #CornflowerBlue
+        card B2 as V1B2 #CornflowerBlue
+        card B3 as V1B3 #CornflowerBlue
+
+        [V1B1] -[hidden]-> [V1B2]
+        [V1B2] -[hidden]-> [V1B3]
+    }
+
+    rectangle "v2.0 (standby)" as V2S {
+        card G1 as V2SG1 #LightGreen
+        card G2 as V2SG2 #LightGreen
+        card G3 as V2SG3 #LightGreen
+
+        [V2SG1] -[hidden]-> [V2SG2]
+        [V2SG2] -[hidden]-> [V2SG3]
+    }
+
+    V1 --[hidden]--> V2S
+}
+
+rectangle " " as 2 #line.dotted {
+    rectangle "v2.0" as V2 {
+        card G1 as V2G1 #LightGreen
+        card G2 as V2G2 #LightGreen
+        card G3 as V2G3 #LightGreen
+
+        [V2G1] -[hidden]-> [V2G2]
+        [V2G2] -[hidden]-> [V2G3]
+    }
+
+    rectangle "v1.0 (standby)" as V1S {
+        card B1 as V1SB1 #CornflowerBlue
+        card B2 as V1SB2 #CornflowerBlue
+        card B3 as V1SB3 #CornflowerBlue
+
+        [V1SB1] -[hidden]-> [V1SB2]
+        [V1SB2] -[hidden]-> [V1SB3]
+    }
+
+    
+
+    V2 --[hidden]--> V1S
+}
+
+Users --> Proxy
+Proxy ---> 1 : before deployment
+Proxy ---> 2 : after deployment
+@enduml
