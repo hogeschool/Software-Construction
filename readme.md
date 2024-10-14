@@ -37,7 +37,7 @@ In deze workshop gaan we kijken naar refactoring, wat is het, waar gebruik je he
 toe? Hoe draagt refactoring bij aan het beter onderhoudbaar maken van je software en hoe kunnen we dit
 op een bestaand project toepassen?
 
-### Workshop 5 - CI/CD
+### <a href="/Workshop - CI_CD/01_introduction.md">Workshop 5 - CI/CD</a.>
 In deze workshop gaan we kijken naar Continuous Integration (CI) en Continuous Development (CD), wat
 wordt er mee bedoeld, waar gebruiken we het voor en wat is het verschil tussen Continuous Development
 en Continuous Delivery. We kijken naar tools, instellingen en gaan een begin maken met de opzet.
