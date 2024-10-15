@@ -13,3 +13,4 @@ For more in depth information about CI/CD, pipelines, workflows, the following r
 - https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs
 - https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications
 - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+- https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners
