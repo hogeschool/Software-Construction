@@ -1,14 +1,12 @@
 # Software Construction: Process and Tools
-Welkom bij het vak Software Construction: Process and Tools van de opleiding Informatica aan de Hogeschool Rotterdam.
+Welcome to the course Software Construction: Process and Tools of the Computer Science program at Rotterdam University of Applied Sciences.
 
 <br>
 
-## Algemeen
-Je komt als ontwikkelaar te werken in een klein team (max 4 studenten), waarbij je samen aan bestaande
-(legacy) software in Python gaat werken op basis van de beschikbare casus. Gaandeweg dien je de
-software te analyseren, in kaart te brengen, te testen en vervolgens te refactoren. Tegelijkertijd ga je een
-CI/CD pipeline opzetten om gedurende het ontwikkeltraject altijd te blijven testen, loggen en monitoren. Als
-alles goed gaat, breidt je de applicatie uit met extra functionaliteit.
+## General
+You will work as a developer in a small team (max 4 students), where you will work together on existing (legacy) software in Python based on the available case. 
+During this course, you will have to analyze, map, test and then refactor the software. At the same time, you will set up a CI/CD pipeline to continue testing, logging and monitoring during the development process. 
+If everything goes well, you will expand the application with extra functionality.
 
 <br>
 
@@ -16,38 +14,36 @@ alles goed gaat, breidt je de applicatie uit met extra functionaliteit.
 
 ### <a href="/Workshop - Requirements Specification/01_introduction.md">Workshop 1 - REST + Requirements Specifications</a>
 
-In deze workshop gaan we kijken naar het opstellen van requirements. Wat zijn goede requirements en
-waar moeten ze o.a. aan voldoen. Wat is REST en hoe werken API’s, een korte introductie en hoe je
-requirements daarvoor opstelt. Aan de hand van voorbeelden ga je kijken naar hoe je o.a. requirements uit
-bestaande software zou kunnen ontleden.
+In this workshop we will look at draw up requirements. 
+What are good requirements and what should they meet, among other things. 
+What is REST and how do APIs work, a short introduction and how to draw up requirements for it. 
+Using examples, you will look at how you could analyze requirements from existing software, among other things.
 
 ### <a href="/Workshop - GIT/01_introduction.md">Workshop 2 – Git</a>
-In deze workshop gaan we kijken naar het gebruik van Git en GitHub. Welke termen worden er gebruikt en
-waar dienen ze voor, wat is de normale gang van werken met Git en wat is het verschil met GitHub.
-Gedurende de gehele cursus is Git de levensader van CI/CD en nu kijken we naar waarvoor, waarom en
-hoe je het gebruikt.
+In this workshop we will look at the use of Git and GitHub. What terms are used and
+what are they for, what is the normal way of working with Git and what is the difference with GitHub.
+Throughout the course Git is the lifeblood of CI/CD and now we look at what, why and
+how you use it.
 
 ### <a href="/Workshop - Software Testing/01_introduction.md">Workshop 3 - Software Testing</a>
-In deze workshop gaan we kijken naar het testen van software. Wat test je wanneer, welke methoden zijn
-er om te testen en waar moet je rekening mee houden. Welke tools kan je gebruiken en hoe gaat dit straks
-helpen binnen onze CI/CD pipeline.
+In this workshop we will look at testing software. 
+What do you test when, what methods are there to test and what do you need to take into account. 
+What tools can you use and how will this help within our CI/CD pipeline.
 
 ### <a href="/Workshop - Refactoring/01_introduction.md">Workshop 4 – Refactoring</a>
-In deze workshop gaan we kijken naar refactoring, wat is het, waar gebruik je het voor en hoe pas je het
-toe? Hoe draagt refactoring bij aan het beter onderhoudbaar maken van je software en hoe kunnen we dit
-op een bestaand project toepassen?
+In this workshop we will look at refactoring, what is it, what do you use it for and how do you apply it? 
+How does refactoring contribute to making your software more maintainable and how can we apply this to an existing project?
 
 ### <a href="/Workshop - CI_CD/01_introduction.md">Workshop 5 - CI/CD</a>
-In deze workshop gaan we kijken naar Continuous Integration (CI) en Continuous Development (CD), wat
-wordt er mee bedoeld, waar gebruiken we het voor en wat is het verschil tussen Continuous Development
-en Continuous Delivery. We kijken naar tools, instellingen en gaan een begin maken met de opzet.
+In this workshop we will look at Continuous Integration (CI) and Continuous Development (CD), 
+what is meant by it, what do we use it for and what is the difference between Continuous Development and Continuous Delivery. 
+We will look at tools, settings and start with the setup.
 
 ### Workshop 6 - Operating Systems + Bash
-In deze workshop gaan we kijken naar het gebruik van Bash en de kracht binnen CI/CD ervan. Hoe
-verschillende Operating Systems van elkaar verschillen. Hoe je navigeer je tussen mappen, hoe je maak
-je bestanden aan, hoe kan je bestanden verplaatsen en verwijderen en hoe stellen we rechten in.
+In this workshop we will look at the use of Bash and its power within CI/CD. 
+How different Operating Systems differ from each other. 
+How to navigate between folders, how to create files, how to move and delete files and how to set permissions.
 
 ### Workshop 7 – UML
-In deze workshop gaan we dieper in op het gebruik en de kracht van UML als taal voor het visueel
-weergeven van software of veranderingen in software. Wij kijken onder andere naar de volgende
-onderdelen: Context diagram, ERD, Deployment diagram, Flowchart, State diagram, Swagger
+In this workshop we will delve deeper into the use and power of UML as a language for visually representing software or changes in software. 
+We will look at the following components: Context diagram, ERD, Deployment diagram, Flowchart, State diagram, Swagger/OpenAPI
