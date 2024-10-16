@@ -68,6 +68,7 @@ Calculator/
 ├── README.md
 └── calculator.py
 ```
+> The .venv environment files are not present in this example, but could be present in your directory
 
 <br><br>
 
@@ -138,7 +139,7 @@ def test_difference(calculator):
 
 <br>
 
-Let's see what the coverage is, you would expect it to be 50% right?
+Let's see what the coverage is, you would expect it to be 50% right? \
 Run the following command to check what the result will be `pytest -v --cov`
 > :notebook: Sometimes it's needed to prepend your command with `python -m`, depending on how your packages are installed.
 
