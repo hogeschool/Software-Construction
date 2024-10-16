@@ -139,7 +139,8 @@ def test_difference(calculator):
 <br>
 
 Let's see what the coverage is, you would expect it to be 50% right?
-Run the following command to check what the result will be `pytest -v --conv`
+Run the following command to check what the result will be `pytest -v --cov`
+> :notebook: Sometimes it's needed to prepend your command with `python -m`, depending on how your packages are installed.
 
 ```shell
 collected 2 items
@@ -162,14 +163,14 @@ Our overall coverage comes down to `89%` percent, which is different then the ex
 
 <br>
 
-We can fix this a bit by creating a `.coveragec` file that has some data about what to cover and what to omit:
+We can fix this a bit by creating a `.coveragerc` file that has some data about what to cover and what to omit:
 
 ```ini
 [run]
 omit = test_*
 ```
 
-Running the command `pytest -v --conv` again, will now give us a cleaner report:
+Running the command `pytest -v --cov` again, will now give us a cleaner report:
 
 ```shell
 collected 2 items
@@ -190,6 +191,7 @@ TOTAL                                                 9      2    78%
 An extra step we can take is adding an extra flag to the command we used, this will tell when a coverage percentage is considered a fail (and we should increase it). We could do this by adding `--cov-fail-under=90` in which we want at least 90% codecoverage.
 <br>
 The total command would look as follow: `pytest -v --cov --cov-fail-under=90`, if we run this now we get an extra line in the output showing us we did not pass the minimum coverage requirement:
+> :notebook: Sometimes it's needed to prepend your command with `python -m`, depending on how your packages are installed.
 
 ```console
 FAIL Required test coverage of 90% not reached. Total coverage: 77.78%
