@@ -13,8 +13,7 @@ If everything goes well, you will expand the application with extra functionalit
 ## Workshops
 
 ### <a href="/Workshop - Requirements Specification/01_introduction.md">Workshop 1 - REST + Requirements Specifications</a>
-
-In this workshop we will look at draw up requirements. 
+In this workshop we will look at how to draw up requirements. 
 What are good requirements and what should they meet, among other things. 
 What is REST and how do APIs work, a short introduction and how to draw up requirements for it. 
 Using examples, you will look at how you could analyze requirements from existing software, among other things.
@@ -36,7 +35,7 @@ How does refactoring contribute to making your software more maintainable and ho
 
 ### <a href="/Workshop - CI_CD/01_introduction.md">Workshop 5 - CI/CD</a>
 In this workshop we will look at Continuous Integration (CI) and Continuous Development (CD), 
-what is meant by it, what do we use it for and what is the difference between Continuous Development and Continuous Delivery. 
+what is it, what do we use it for and what is the difference between Continuous Development and Continuous Delivery. 
 We will look at tools, settings and start with the setup.
 
 ### Workshop 6 - Operating Systems + Bash
