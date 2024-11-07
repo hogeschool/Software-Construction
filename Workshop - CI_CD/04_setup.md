@@ -23,7 +23,7 @@ Let's start by iniatializing a new Python project called `calculator`:
 ```shell
 python3 -m venv calculator
 
-. calculator/Script/activate
+. calculator/Scripts/activate
 # . calculator/bin/activate (on Mac and Linux)
 ```
 
