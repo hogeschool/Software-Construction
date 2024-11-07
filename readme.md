@@ -38,7 +38,7 @@ In this workshop we will look at Continuous Integration (CI) and Continuous Deve
 what is it, what do we use it for and what is the difference between Continuous Development and Continuous Delivery. 
 We will look at tools, settings and start with the setup.
 
-### Workshop 6 - Operating Systems + Bash
+### <a href="/Workshop - Operating systems and Bash//01_introduction.md">Workshop 6 - Operating Systems + Bash</a>
 In this workshop we will look at the use of Bash and its power within CI/CD. 
 How different Operating Systems differ from each other. 
 How to navigate between folders, how to create files, how to move and delete files and how to set permissions.
