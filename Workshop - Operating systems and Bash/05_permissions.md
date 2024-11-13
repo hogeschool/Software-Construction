@@ -56,7 +56,7 @@ chmod a+rw myfile.txt
 ```
 
 ### Assignment
-Create a script that adds execute permission for the owner and removes write permission for others on a file.
+Create a command that adds execute permission for the owner and removes write permission for others on a file.
 > *Hint: Use `chmod u+x` and `chmod o-w`.*
 
 <br>
@@ -80,7 +80,7 @@ So, the permissions in the above example are:
 - **5 (Others)**: `r-x` (4 + 1 = 5)
 
 ### Assignment
-Permissions (Numeric Mode): Write a script that sets the permissions of a file to rwxr-xr--
+Permissions (Numeric Mode): Write a command that sets the permissions of a file to rwxr-xr--
 > *Hint: Use `chmod 755`.*
 
 <br>
@@ -97,7 +97,7 @@ chown newuser:newgroup myfile.txt
 ```
 
 ### Assignment
-Create a script that changes the owner of a file to a different user.
+Create a command that changes the owner of a file to a different user.
 > *Hint: Use `chown newuser`.*
 
 <br>
