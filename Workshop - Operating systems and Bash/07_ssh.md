@@ -1,4 +1,4 @@
-# SSH (Secure Shell)
+# SSH (Secure Shell) [*optional*]
 
 SSH (Secure Shell) is a protocol used to securely connect to remote servers. It provides a secure channel over an unsecured network by using encryption. This guide will cover the basics of using SSH, setting up SSH keys for passwordless authentication, and configuring SSH access for multiple users.
 
