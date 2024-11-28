@@ -1,0 +1,25 @@
+@startuml Voyager Probe ChatGPT
+
+    actor "NASA Mission Control" as NASA
+    actor "Deep Space Network (DSN)" as DSN
+    participant "Voyager Probe" as Voyager
+
+    NASA -> DSN: Send command
+    DSN -> Voyager: Relay command
+    Voyager -> DSN: Acknowledge command
+
+    DSN -> Voyager: Request telemetry data
+    Voyager -> DSN: Send telemetry data
+    DSN -> NASA: Forward telemetry data
+
+    NASA -> DSN: Request scientific data
+    DSN -> Voyager: Relay request
+    Voyager -> DSN: Send scientific data
+    DSN -> NASA: Forward scientific data
+
+    NASA -> DSN: Send new instructions
+    DSN -> Voyager: Relay new instructions
+    Voyager -> DSN: Acknowledge receipt of instructions
+    DSN -> NASA: Confirm instructions delivered
+
+@enduml

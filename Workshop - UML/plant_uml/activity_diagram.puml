@@ -1,0 +1,22 @@
+@startuml GO Sharing Scooter Renting
+
+    |Renter|
+    start
+    :Locate Scooter;
+    :Select Scooter;
+
+    |System|
+    :Check Money Deposit;
+    if (Enough Money Deposited?) then (yes)
+        |Renter|
+        :Initiate Rent;
+        :Start Riding Scooter;
+        stop
+    else (no)
+        :Reject Rental;
+        :Notify Renter to Deposit Money;
+        |Renter|
+        stop
+    endif
+
+@enduml

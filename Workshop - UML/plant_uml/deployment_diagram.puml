@@ -1,0 +1,33 @@
+@startuml GO Sharing Deployment Architecture
+
+    node "Client Device" {
+        [Mobile App]
+    }
+
+    node "Cloud Infrastructure" {
+        node "Web Server" {
+            [Scooter Rental System]
+        }
+        node "Database Server" {
+            [Database schema]
+        }
+    }
+
+    node "Payment Gateway" {
+        [Payment Processing Service]
+    }
+
+    node "Scooter" {
+        [GPS Module]
+        [Lock/Unlock Mechanism]
+        [Battery Controller]
+    }
+
+    [Mobile App] -(0- [Scooter Rental System] : API Requests
+    [Scooter Rental System] -(0- [Database schema] : Read/Write
+    [Scooter Rental System] -left(0- [Payment Processing Service] : Payment Requests
+    [Scooter Rental System] -(0- [Lock/Unlock Mechanism] : Access Control
+    [Scooter Rental System] -(0- [GPS Module] : Location Tracking
+    [Scooter Rental System] -(0- [Battery Controller] : Location Tracking
+
+@enduml

@@ -1,0 +1,78 @@
+@startuml GO Sharing Class Diagram
+
+    class Account {
+        +username: String
+        +password: String
+        +fetchAccount(): void
+        +createAccount(): void
+    }
+
+    class Renter {
+        +depositAmount: Float
+        +depositMoney(amount: Float): void
+        +locateScooter(): Scooter
+        +rentScooter(scooter: Scooter): void
+        +pauseRenting(reservation: Reservation): void
+        +resumeRenting(reservation: Reservation): void
+        +cancelRenting(reservation: Reservation): void
+        +endRenting(reservation: Reservation): void
+    }
+
+    class Admin {
+        +generateUsageReport(): UsageReport
+        +listBrokenScooters(): List<Scooter>
+        +getMileagePerScooter(): List<MileageReport>
+    }
+
+    class Finance {
+        +generateGrossTurnoverReport(): FinancialReport
+    }
+
+    class Scooter {
+        +id: String
+        +location: String
+        +status: String
+        +mileage: Float
+    }
+
+    class Reservation {
+        +reservationId: String
+        +renter: Renter
+        +scooter: Scooter
+        +startTime: DateTime
+        +endTime: DateTime
+        +status: String
+    }
+
+    class UsageReport {
+        +dateRange: String
+        +totalRentals: Float
+    }
+
+    class MileageReport {
+        +dateRange: String
+        +totalMileage: Float
+    }
+
+    class FinancialReport {
+        +dateRange: String
+        +grossTurnover: Float
+    }
+
+    Account <|-- Renter
+    Account <|-- Admin
+    Account <|-- Finance
+
+    Renter "1" -- "0..*" Reservation : makes >
+    Reservation "1" -- "1" Scooter : includes >
+    Reservation "1" -- "1" Renter : involves >
+    Admin "1" -- "0..*" Scooter : manages >
+    Admin "1" -- "0..*" UsageReport : generates >
+    Admin "1" -- "0..*" MileageReport : generates >
+    Finance "1" -- "0..*" FinancialReport : generates >
+
+    Reservation "1" -- "0..*" UsageReport : associated with >
+    Reservation "1" -- "0..*" MileageReport : associated with >
+    Reservation "1" -- "0..*" FinancialReport : associated with >
+
+@enduml

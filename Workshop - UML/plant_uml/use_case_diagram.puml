@@ -1,0 +1,43 @@
+@startuml GO Sharing Use Case Diagram
+
+    left to right direction
+
+    actor Renter
+    actor Admin
+    actor Finance
+
+    rectangle "Scooter Rental System" {
+
+        usecase "Create Account" as UC_CreateAccount
+        usecase "Sign In User" as UC_SignIn
+        usecase "Deposit Money" as UC_DepositMoney
+
+        usecase "Locate Scooter" as UC_LocateScooter
+        usecase "Rent Scooter" as UC_RentScooter
+        usecase "Pause Renting" as UC_PauseRenting
+        usecase "End Renting" as UC_EndRenting
+
+        usecase "Display Usage" as UC_DisplayUsage
+        usecase "List Broken Scooters" as UC_ListBrokenScooters
+        usecase "Display Mileage Per Scooter" as UC_DisplayMileagePerScooter
+
+        usecase "Display Gross Turnover" as UC_DisplayGrossTurnover
+
+        Renter --> UC_CreateAccount
+        Renter --> UC_SignIn
+        Renter --> UC_DepositMoney
+        Renter --> UC_LocateScooter
+        Renter --> UC_RentScooter
+        Renter --> UC_PauseRenting
+        Renter --> UC_EndRenting
+
+        Admin --> UC_SignIn
+        Admin --> UC_DisplayUsage
+        Admin --> UC_ListBrokenScooters
+        Admin --> UC_DisplayMileagePerScooter
+
+        UC_SignIn -- Finance
+        UC_DisplayGrossTurnover -- Finance
+    }
+
+@enduml

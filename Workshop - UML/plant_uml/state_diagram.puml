@@ -1,0 +1,13 @@
+@startuml GO Sharing Scooter Rental
+
+    [*] --> Idle
+
+    Idle -down-> Active: Rent Scooter
+    Active -right-> Paused: Pause Renting
+    Paused -up-> Active: Resume Renting
+    Active -up-> Idle: Stop Rental
+    Paused -left-> Idle: Cancel Rental
+
+    Idle --> [*]
+
+@enduml

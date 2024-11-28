@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Calculator API
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:5000
+    description: dev server
+tags:
+  - name: General
+    description: Basic calculator methods
+paths:
+  /add:
+    post:
+      tags:
+        - General
+      summary: addition
+      description: Will add two values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - a
+                - b
+              properties:
+                a:
+                  type: number
+                b:
+                  type: number
+            example:
+              a: 1
+              b: 2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                example:
+                  result: 3
+  /sub:
+    post:
+      tags:
+        - General
+      summary: subtraction
+      description: Will subtract two values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - a
+                - b
+              properties:
+                a:
+                  type: number
+                b:
+                  type: number
+            example:
+              a: 1
+              b: 2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                example:
+                  result: -1
+  /mul:
+    post:
+      tags:
+        - General
+      summary: multiplication
+      description: Will multiply two values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - a
+                - b
+              properties:
+                a:
+                  type: number
+                b:
+                  type: number
+            example:
+              a: 3
+              b: 2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                example:
+                  result: 6
+  /div:
+    post:
+      tags:
+        - General
+      summary: division
+      description: Will divide two values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - a
+                - b
+              properties:
+                a:
+                  type: number
+                b:
+                  type: number
+            example:
+              a: 6
+              b: 3
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                example:
+                  result: 2

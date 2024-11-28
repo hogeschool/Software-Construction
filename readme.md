@@ -43,6 +43,6 @@ In this workshop we will look at the use of Bash and its power within CI/CD.
 How different Operating Systems differ from each other. 
 How to navigate between folders, how to create files, how to move and delete files and how to set permissions.
 
-### Workshop 7 – UML
+### <a href="/Workshop - UML/01_introduction.md">Workshop 7 – UML</a>
 In this workshop we will delve deeper into the use and power of UML as a language for visually representing software or changes in software. 
 We will look at the following components: Context diagram, ERD, Deployment diagram, Flowchart, State diagram, Swagger/OpenAPI

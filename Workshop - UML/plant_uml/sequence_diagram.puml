@@ -1,0 +1,24 @@
+@startuml GO Sharing Money Deposit
+
+    actor Renter
+    participant "Scooter Rental System" as System
+    participant "Payment Gateway" as Payment
+    participant "iDEAL Bank" as Bank
+
+    Renter -> System: Initiate Deposit(amount)
+    activate System
+    System -> Payment: Redirect to iDEAL
+    activate Payment
+    Payment -> Bank: Request Payment Authorization(amount)
+    activate Bank
+    Bank -> Renter: Display Payment Page
+    Renter -> Bank: Authorize Payment
+    Bank -> Payment: Payment Authorized
+    deactivate Bank
+    Payment -> System: Payment Confirmed
+    deactivate Payment
+    System -> System: Update Account Balance(amount)
+    System -> Renter: Confirm Deposit
+    deactivate System
+
+@enduml

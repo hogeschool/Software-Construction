@@ -1,0 +1,20 @@
+@startuml Voyager Communication Protocol
+
+    participant "Center Center" as Center
+    participant "Voyager Probe" as Voyager
+
+    Center ->> Voyager: Connect
+    activate Voyager
+    Voyager --> Center: Acknowledge Connection
+    deactivate Voyager
+    Center ->> Voyager: Send Data
+    activate Voyager
+    Voyager ->> Voyager: Process Data
+    Voyager --> Center: Acknowledge Data Received
+    deactivate Voyager
+    Center ->> Voyager: Disconnect
+    activate Voyager
+    Voyager --> Center: Acknowledge Disconnection
+    deactivate Voyager
+
+@enduml

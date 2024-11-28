@@ -1,0 +1,16 @@
+@startuml Voyager Message Description
+
+    object Header {
+        + opcode      : uint8
+        + timestamp   : int32
+        + payloadSize : uint32
+    }
+
+    object Payload {
+        + body        : uint8[]
+        + MD5checksum : int32
+    }
+
+    Header <-- Payload : includes
+
+@enduml
