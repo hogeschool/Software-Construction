@@ -34,3 +34,6 @@
 - [OpenAPI Specification](https://swagger.io/specification)
 - [Swagger Parser](https://apitools.dev/swagger-parser)
 - [Swagger Tutorial](https://www.youtube.com/watch?v=xQfMARPNycI)
+
+## Other
+- [Mermaid tool](https://mermaid.js.org/)
