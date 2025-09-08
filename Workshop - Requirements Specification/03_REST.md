@@ -56,7 +56,7 @@ On the Payload tab we see that:
 
 - The credentials are encoded via Form Data (key-value pairs)
 
-So the login is implemented by calling the `/v1/login` endpoint of the HR-server, where the credentials are send along in the body. The server will respond by setting a authentication cookie and saying '200 OK'. You will learn more about this process during the WebDev course.
+So the login is implemented by calling the `/v1/login` endpoint of the HR-server, where the credentials are sent along in the body. The server will respond by setting a authentication cookie and saying '200 OK'. You will learn more about this process during the WebDev course.
 
 Because we call an endpoint with a verb in it ('login'), we know that this is not a REST-based request; we're calling a function so it's a Remote Procedure call (RPC), where calling the login-function results in setting a authentication cookie.
 
