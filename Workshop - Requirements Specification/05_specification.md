@@ -11,6 +11,8 @@ What do you think of the following requirements?
 2. The app should be fast and secure
 3. Implement notifications
 
+<details>
+
 ### Possible Answer
 1. Users must be able to share to-do lists:
 
@@ -23,6 +25,8 @@ This is a non-specific requirement. "Fast" and "secure" are subjective terms and
 3. Implement notification
 
 This lacks detail about the types of notifications (e.g., email, push notifications), what triggers them, and the customization options available to users.
+
+</details>
 
 ## Good requirements
 Writing bad requirements is easy: just jot down the first thing that comes to mind. Good writing requires **attention** and **structure**. To help you write down good requirements here are some guiding principles:
@@ -57,22 +61,27 @@ It should be possible to verify each requirement through testing, inspection, or
 Each requirement should be traceable back to its origin, whether it’s a stakeholder need, a business objective, or a higher-level system requirement. This helps in managing changes and understanding the impact of modifications.
 
 ## Activity
-- Read the scenario below and the sample poorly formulated requirement
+- Read the scenario below with the a poorly formulated requirement
 - Rewrite the requirement to meet the properties of good requirements
 - Explain how your rewritten requirement satisfies each property of a good requirement
 
 ### Scenario
-You are part of a team developing a collaborative to-do app. One feature needed is the ability for users to share to-do lists with others. A poorly formulated requirement for this feature might be: "Users must be able to share to-do lists."
+You are part of a team that develops a collaborative to-do app. A central feature is the ability for users to share to-do lists with others. A poorly formulated requirement for this feature would be: "Users must be able to share to-do lists."
 
 ### Task
 Rewrite the above requirement considering the properties of good requirements. After rewriting the requirement, provide a brief explanation for how your requirement satisfies each property.
 
+<details>
+
 ### Possible Answer
-Rewritten Requirement:
+Rewritten requirement into multiple parts:
 
-"Users must be able to share to-do lists with other registered users by entering their email addresses. Shared users should have the ability to view, edit, and complete tasks on the shared list. Notifications must be sent to shared users when a list is shared with them, and the owner of the list should be able to revoke access at any time. The sharing functionality must be accessible within the to-do list interface and must respond within 2 seconds after the share button is clicked."
+- Users must be able to share to-do lists with other registered users by entering their username with the @-symbol, like @hoofr
+- Shared users should have the ability to view, edit, and complete tasks on the shared list
+- Notifications must be sent to shared users when a list is shared with them, and the owner of the list should be able to revoke access at any time
+- The sharing functionality must be accessible within the to-do list interface and must respond within 2 seconds after the share button is clicked
 
-**Clear and Unambiguous:** The requirement specifies that sharing is done by entering email addresses and that only registered users can be shared with. It also clarifies the permissions shared users will have.
+**Clear and Unambiguous:** The requirement specifies that sharing is done by entering a username and that only registered users can be shared with. It also clarifies the permissions shared users will have.
 
 **Specific:** It details what actions shared users can perform (view, edit, complete tasks) and how notifications and revoking access should work.
 
@@ -90,8 +99,10 @@ Rewritten Requirement:
 
 **Traceable:** This requirement can be traced back to the need for collaborative features in the app.
 
+</details>
+
 ## Tip
-Look for good examples and guiding principles to help you with writing. Approach it like programming: "code" with words and sentences to bring your message across. Like with programming: you need to design you message so do some sketching, refining and even testing; test if your message can be decoded by others.
+Look for good examples and guiding principles to help you with writing. Approach it like programming: "code" with words and sentences to bring your message across. Like with programming: you need to design, refine and test your message; test if your message can be decoded by others.
 
 # Summary
 Good writing is a work of art; it takes time and effort. If you don't like writing: really do practice and remember that you don't write for yourself. You write because you provide clarity to your team and to all the other stakeholders in your project.
