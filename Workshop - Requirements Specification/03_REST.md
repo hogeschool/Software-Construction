@@ -23,7 +23,7 @@ Content-Type: text/plain
 Content-Length: 852
 ```
 
-It says: you can expect 852 bytes of text data and the logic behind /profile/picture should to do something with the picture. Look at the CargoHub code base to see how this logic is technically implemented.
+It says: you can expect 852 bytes of text data and the logic behind /profile/picture should to do something with the picture.
 
 ### Message Body
 The body contains the data we want to send to the server, here a base64-encoded image:
@@ -34,7 +34,7 @@ iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACL0lE
 
 If you are curious about this picture: try to base64 decode it!
 
-But before we can upload stuff we first need to get access the our profile.
+But before we can upload files we first need to get access the our profile.
 
 ### Activity
 To get access to our profile we need to authenticate ourselves. Let's have a look at how our hogeschool Rotteram does this. Assuming we use the Chrome browser:
@@ -60,7 +60,7 @@ So the login is implemented by calling the `/v1/login` endpoint of the HR-server
 
 Because we call an endpoint with a verb in it ('login'), we know that this is not a REST-based request; we're calling a function so it's a Remote Procedure call (RPC), where calling the login-function results in setting a authentication cookie.
 
-In the CargoHub code you'll find how you would implement the authentication process in REST. But what ís REST?
+In the MobyPark code you'll find how you would implement the authentication process in REST. But what ís REST?
 
 ## What is REST?
 Where RPC is designed around the idea of *calling functions*, REST is designed around the idea of *querying resources*. These resources are usually derived from the entities in our data model. So you can use the endpoints to reverse engineer the data model.
@@ -78,10 +78,12 @@ You can also query single items from a resource:
 
 REST uses Uniform Resource Identifiers (URIs) to expose the internal resources via a web server. Here the URI is the whole URL: the domain and subdomain part (`https://api.store.com`) plus the resource (`orders` or `items`).
 
-> With this knowledge you should already be able to read off the endpoints of the CargoHub API.
+> With this knowledge you should already be able to read off the endpoints of the MobyPark API.
 
 #### Question
 What URL would you expect for fetching accounts? And for prices?
+
+<details>
 
 #### Answer
 The resource would be 'accounts' so `https://api.store.com/v1/accounts`. Mind the plural form. Similarly for prices. Note that 'prices' is probably not an entity within the data model, but it can be queried as a resource.
@@ -90,11 +92,15 @@ If you wonder what the difference is between URIs and URLs: URIs are more genera
 
 > Sometimes you see `https://store.com/api/v1` instead of the subdomain `https://api.store.com/v1`. That's a matter of taste or depends on the technical implementation. It is further common to add a version number to our api to help us with its maintainability. This may become clear during this course.
 
+</details>
+
 ### Naming resources
 We have already seen than REST does not use verbs to access a resource. So to fetch the items of a store, we cannot use the URL `https://api.store.com/fetch-items`. Instead, we use the GET method of the HTTP protocol to encode the fetch action.
 
 ### Question
 Suppose we want to fetch the items of the store. How would we do that?
+
+<details>
 
 ### Answer
 To fetch the items, we combine the HTTP GET method with our URL:
@@ -103,8 +109,12 @@ To fetch the items, we combine the HTTP GET method with our URL:
 
 The resource here is `items` (note the plural form) and the fetch operation is represented by the `GET` method.
 
+</details>
+
 ### Question
 How do we tell the server about the URL and the `GET` method?
+
+<details>
 
 ### Answer
 These instructions are set in the header of the HTTP message.
@@ -135,8 +145,12 @@ with a body containing the XML response:
 </items>
 ```
 
+</details>
+
 ### Activity
 Can you translate the XML response into JSON?
+
+<details>
 
 ### Answer
 A possible, compact solution would be:
@@ -158,6 +172,8 @@ A possible, compact solution would be:
 
 There is no standard for the response representation in REST, but it common to send a response via JSON. We are then referring to 'JSON over REST'.
 
+</details>
+
 ## RESTful operations
 We have already seen that we can map a fetch operation on the HTTP GET method. We can extend this by mapping the standard Create, Read, Update and Delete (CRUD) data operations onto the following HTTP methods:
 
@@ -176,6 +192,8 @@ DELETE is not idempotent because it removes a record.
 ### Question
 Given the HTTP methods, how would we update an item of the store with REST?
 
+<details>
+
 ### Answer
 First note that the update operation is mapped onto the HTTP PUT method. The tricky part is how to encode which item we need to update and with what data. Here is how we encode the update in REST terms:
 
@@ -191,12 +209,14 @@ and send along the updated item in the body of the request:
 }
 ```
 
-Note that we pass the identifier of the item we want to update in the URI. So the general URI for updates is `https://api.store.com/v1/items/{item_id}`.
+Note that we pass the identifier of the item we want to update in the URL. So the general URL for updates is `https://api.store.com/v1/items/{item_id}`.
 
 ### Payload heavy-ness
-Through the design of the URI for updates you can see why REST is payload heavy: before you can update an item, you first need to know its identifier. And to know this identifier, you need to fetch *all* items. This is not a problem for 10 items, but you might have 10,000 items... which translates in a huge payload.
+Through the design of the URL for updates you can see why REST is payload heavy: before you can update an item, you first need to know its identifier. And to know this identifier, you need to fetch *all* items. This is not a problem for 10 items, but you might have 10,000 items... which translates in a huge payload.
 
 > With REST APIs you often need multiple roundtrips to perform a single action. More on this later.
+
+</details>
 
 ## Status codes
 To indicate if an operation was succesful, the HTTP protocol adds a status code to the response. Responses are grouped into five classes:
@@ -215,6 +235,8 @@ Using the [Mozilla documentation](https://developer.mozilla.org/en-US/docs/Web/H
 - Something goes wrong on the server
 - A resource is created
 
+<details>
+
 ### Answers
 We expect the status codes:
 
@@ -223,7 +245,9 @@ We expect the status codes:
 - 500 Internal Server Error
 - 201 Created
 
-Take a look at the CargoHub API and see if you recognize these code. They also give you a hint of what the code does.
+Take a look at the MobyPark API and see if you recognize these code. They also give you a hint of what the code does.
+
+</details>
 
 ## Stateless-ness
 Last, but not least: REST is designed around the idea of being stateless. This means that a RESTful web server:
@@ -246,7 +270,7 @@ To start go to [hoppscotch.io](https://hoppscotch.io). The user interface elemen
 - Below the endpoint we find the body and header of the request
 - Below that we see the response, the status code and the time it took
 
-We are going to query the RESTful API described on [this site](jsonplaceholder.typicode.com).
+We are going to query the RESTful API described on [this site](https://jsonplaceholder.typicode.com).
 
 1. Open the site and look for the resources and the routes (the URIs for these resources)
 2. In the Hoppscotch UI, change the default `https://echo.hoppscotch.io` to the endpoint `https://jsonplaceholder.typicode.com`
@@ -256,6 +280,8 @@ Now answer the following questions:
 3. What's the name of the user that wrote the post with id = 12?
 4. What's the title of the second comment on post with id = 2?
 5. How many albums does user with id = 8 have?
+
+<details>
 
 ### Answers
 (3) To know the name of the user that wrote post 12:
@@ -282,5 +308,7 @@ If you did not yet do this, try using the endpoint: `/comments?postId=2`. Now yo
 - Directly fetch the filtered list from the endpoint `/albums?userId=8`
 - Now count the number of results to find 10 albums for user 8
 
+</details>
+
 ## Conclusion
-You now know what RESTful APIs are, that they are used in many places and that they have their pros and cons. With this knowlegde you should be able to reverse engineer the CargoHub API. Next we discuss how you can extract its underlying requirements, such that you can document those.
+You now know what RESTful APIs are, that they are used in many places and that they have their pros and cons. With this knowlegde you should be able to reverse engineer the MobyPark API. Next we discuss how you can extract its underlying requirements, such that you can document those.
