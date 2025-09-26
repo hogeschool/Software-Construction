@@ -9,7 +9,6 @@ Testing helps uncover defects early in the development process, reducing the cos
 It ensures that the software behaves as expected, meets user needs, and complies with business requirements.
 
 ## Role of testing
-
 Testing plays a crucial role in the software development process. Here are some key aspects:
 
 #### Bug Identification and Fixing
@@ -48,33 +47,30 @@ Key Points:
 - Limitations: Unittests only cover the unit itself, not system-wide interactions.
 
 Example:
-* Creating test cases for a function that calculates the square root of a number.
+* Creating test cases for a function that calculates sum of two numbers.
 * Ensuring that a class method correctly handles edge cases.
 
 ```python
-import math
-import unittest
-
 class Calculator:
-    def square_root(self, x):
-        if x < 0:
-            raise ValueError("Cannot calculate square root of a negative number")
-        return math.sqrt(x)
+    def add(self, a, b):
+        return a + b
 
+    def subtract(self, a, b):
+        return a - b
+```
+
+```python
+import unittest
 
 class TestCalculator(unittest.TestCase):
     def setUp(self):
         self.calculator = Calculator()
 
-    def test_positive_number(self):
-        self.assertAlmostEqual(self.calculator.square_root(25), 5.0, places=6)
+    def test_add(self):
+        self.assertEqual(self.calculator.add(1, 2), 3)
 
-    def test_zero(self):
-        self.assertAlmostEqual(self.calculator.square_root(0), 0.0, places=6)
-
-    def test_negative_number(self):
-        with self.assertRaises(ValueError):
-            self.calculator.square_root(-10)
+    def test_subtract(self):
+        self.assertEqual(self.calculator.subtract(5, 3), 2)
 
 
 if __name__ == "__main__":
@@ -83,7 +79,35 @@ if __name__ == "__main__":
 
 ### 2. Integrationtesting
 Integration testing sits just above unit testing in the testing pyramid. <br>
-Integration testing involves testing various software modules together as a group to verify their seamless interaction.
+Integration testing involves testing various software modules together as a group to verify their seamless interaction. <br>
+
+For example, we have created an API to use our Calculator app via endpoints online:
+
+```python
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from calculator import Calculator
+
+app = FastAPI()
+calculator = Calculator()
+
+
+class OperationData(BaseModel):
+    a: float
+    b: float
+
+
+@app.post("/add")
+async def add(data: OperationData):
+    result = calculator.add(data.a, data.b)
+    return {"result": result}
+
+@app.post("/subtract")
+async def subtract(data: OperationData):
+    result = calculator.subtract(data.a, data.b)
+    return {"result": result}
+```
+
 
 > If you think about it, one project is likely to involve the development of many features. Sometimes, when working as a team, there are a number of developers involved. Integration testing will check that all features being developed will work together.
 
@@ -100,6 +124,31 @@ Approaches:
         -   Cons: Stubs needed for missing modules, inadequate lower-level testing.
 - Hybrid Integrated Testing: Combines elements of both approaches.
 
+
+If we look at the above API that uses our Calculator class, we could create an integration test for it looking something like this:
+
+```python
+import unittest
+from fastapi.testclient import TestClient
+from api import app
+
+
+class TestCalculatorAPI(unittest.TestCase):
+    def setUp(self):
+        self.client = TestClient(app)
+
+    def test_add(self):
+        response = self.client.post('/add', json={'a': 1, 'b': 2})
+        self.assertEqual(response.json()['result'], 3)
+
+    def test_subtract(self):
+        response = self.client.post('/subtract', json={'a': 6, 'b': 4})
+        self.assertEqual(response.json()['result'], 2)
+
+
+if __name__ == '__main__':
+    unittest.main()
+```
 
 ### 3. Systemtesting
 System testing validates the fully integrated software product against end-to-end specifications. It ensures that the software meets functional and non-functional requirements.
