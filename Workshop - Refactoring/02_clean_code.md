@@ -73,7 +73,7 @@ Besides naming, the consistency of your code base adds to its readability. That'
 #### Activity
 - Read the article [How to Write Beautiful Python Code With PEP 8](https://realpython.com/python-pep8) with your team
 - Choose at least **two conventions** you did not yet use, but that would add the the quality of your code
-- Look at the CargoHub API code and adjust some styling together
+- Look at the project API code and adjust some styling together
 - Apply these conventions during the current coding cycle
 - Reflect on its benefits after the cycle
 
@@ -87,7 +87,7 @@ Clean Code is easy to adjust. Code that is easy adjust has
 It is of course impossible to achieve this in reality, but we should try to strive for this as much as possible.
 
 ### Activity
-Looking at the CargoHub API code, what types of dependencies, coupling and duplication do you see?
+Looking at the project API code, what types of dependencies, coupling and duplication do you see?
 
 **Answers**
 - Use of globals
