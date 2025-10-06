@@ -73,7 +73,7 @@ Besides naming, the consistency of your code base adds to its readability. That'
 #### Activity
 - Read the article [How to Write Beautiful Python Code With PEP 8](https://realpython.com/python-pep8) with your team
 - Choose at least **two conventions** you did not yet use, but that would add the the quality of your code
-- Look at the CargoHub API code and adjust some styling together
+- Look at the MobyPark API code and adjust some styling together
 - Apply these conventions during the current coding cycle
 - Reflect on its benefits after the cycle
 
@@ -87,7 +87,7 @@ Clean Code is easy to adjust. Code that is easy adjust has
 It is of course impossible to achieve this in reality, but we should try to strive for this as much as possible.
 
 ### Activity
-Looking at the CargoHub API code, what types of dependencies, coupling and duplication do you see?
+Looking at the MobyPark API code, what types of dependencies, coupling and duplication do you see?
 
 **Answers**
 - Use of globals
@@ -99,7 +99,9 @@ Easy to adjust code is isolated and lives in functions, modules and classes. But
 #### Activity
 Suppose we need to change the storage logic of our backend system. Currently we store our data in files but we need to store this data in a database. How should we do this without changing our original code too much?
 
-**Answer**
+<details>
+<summary><b>Answer</b></summary>
+<br>
 
 Let's zoom out a bit.
 
@@ -210,6 +212,8 @@ storage.update(key, data)
 storage.delete(key)
 ```
 
+</details><br>
+
 Interfaces also make extending easy: define the interface for a Photoshop plugin and any vendor that implements this interface can be included into Photoshop. By the way: the best **physical interface** ever designed may well be plug and holes of the power outlet system.
 
 **Remember**
@@ -226,7 +230,9 @@ Code that is easy to adjust is also easy to extend. If we apply Object Oriented 
 
 Going back to the example of the `Bird` class with its `fly()` method, what would be a better way to implement the `Swan` and `Ostrich` types?
 
-**Answer**
+<details>
+<summary><b>Answer</b></summary>
+<br>
 
 Instead of defining a single `Bird` class and doing some weird logic bending, we could also define two bird types:
 
@@ -247,6 +253,8 @@ class WalkingBird:
 By defining two distinct classes we have decoupled our logic from the `Bird` class, which makes it easier to understand and extend.
 
 **Remark**
-> We could also have zoomed out to capture the behaviour of the birds more generally in a `IMovable` interface with a `move()` method. There are many ways to tackle a problem and we just chose one here. What would be possible disadvantages of introducing a `IMovable` interface?
+> We could also have zoomed out to capture the behaviour of the birds more generally in a `IMovable` interface with a `move()` method. There are many ways to tackle a problem and we just chose one here. What would be a possible disadvantage of introducing a `IMovable` interface? Indeed, it may become a bit too abstract and thus harder to understand & maintain.
+
+</details><br>
 
 Note that we did change the **structure** of our code, but not its **functionality**: a swan still flies and an osterich still walks. However, it can be tricky to refactor this code safely (that's why we need tests). More on how to use refactor tools in chapter 4. Tools of this workshop.

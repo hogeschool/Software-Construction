@@ -45,7 +45,8 @@ def main():
     printString("Program starting...")
     print("Welcome to the User Data Processing Program!")
     print("Please provide the following details:")
-    nam = input("nam: ")
+
+    nam = input("Nam: ")
     age = int(input("Age: "))
     email = input("Email: ")
     
