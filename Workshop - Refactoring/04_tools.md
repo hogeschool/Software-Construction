@@ -16,14 +16,14 @@ We have to correct variable names, function names, text in comments and text in 
 Our strategy is first to rename our functions, then our variables and lastly strings and comments.
 
 ### Rename symbol
-Let's start with `rename symbol`. To show the power of this feature, turn the `printString()` function into camel casing.
+Let's start with `rename symbol`. To show the power of this feature, turn the `printString()` function into snake casing (why?).
 
 Select the function name and press `F2`. This let's us rename the function over the **entire** code base. Any reference to this function will be renamed.
 
 Let's also rename the misspelled `nam` variable.
 
 **Limitation**
-> You cannot globally rename comments. Try it.
+> You cannot globally rename comments with `rename symbol`. Try it.
 
 **Warning**
 > You cannot rename built-in class methods (try renaming the `Dict.strip()` method), but be aware that you *can* rename functions and methods in the standard modules. 

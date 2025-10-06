@@ -28,5 +28,5 @@ Find the index.html and open it in your browser.
 - Play around in the Calculator class, add some new methods
 - Add a new module or class and see what it does to your docs
 
-## 6. Apply to CargoHub API
-Use the `sphinx-example` as a template for your CargoHub API code and start documenting your code base.
+## 6. Apply to MobyPark API
+Use the `sphinx-example` as a template for your MobyPark API code and start documenting your code base.
